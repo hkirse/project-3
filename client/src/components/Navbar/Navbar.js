@@ -4,11 +4,10 @@ import "./Navbar.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-lg fixed-top">
     <Link className="navbar-brand" to="/">
       CrankHeads
     </Link>
-    <div>
       <ul className="navbar-nav">
         <li
           className={
@@ -19,7 +18,7 @@ const Navbar = props => (
           }
         >
           <Link to="/" className="nav-link">
-            Personal Page
+            Home
           </Link>
         </li>
         <li
@@ -29,8 +28,8 @@ const Navbar = props => (
               : "nav-item"
           }
         >
-          <Link to="/discover" className="nav-link">
-            Discover
+          <Link to="/personal" className="nav-link">
+            Personal
           </Link>
         </li>
         <li
@@ -40,12 +39,33 @@ const Navbar = props => (
               : "nav-item"
           }
         >
-          <Link to="/search" className="nav-link">
-            Search
+          <Link to="/connect" className="nav-link">
+            Connect
+          </Link>
+        </li>
+        <li
+          className={
+            window.location.pathname === "/discover"
+              ? "nav-item active"
+              : "nav-item"
+          }
+        >
+          <Link to="/discover" className="nav-link">
+            Discover
           </Link>
         </li>
       </ul>
-    </div>
+      <div className="nav navbar-nav ml-auto">
+        <button
+          className=
+            "btn nav-item btn-outline-light"
+            type="submit"
+        >
+          <Link to="/login" className="nav-link">
+            Login
+          </Link>
+        </button>
+      </div>
   </nav>
 );
 
