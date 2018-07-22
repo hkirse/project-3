@@ -5,3 +5,7 @@ nav.navbar {
 .navbar-brand, .nav-link {
   color: white;
 }
+
+.active > .nav-link {
+  color: blue !important;
+}
