@@ -1,30 +1,31 @@
+import React, { Component } from "react";
 
-import React from "react";
+// const API_KEY = "7dc5e202b7b3ee7419e3d42654353"; ***obtained API key from website***
 
-//  code from "https://reactjs.org/docs/faq-ajax.html"
-class MyComponent extends React.Component {
+// code from "https://reactjs.org/docs/faq-ajax.html"
+
+class Connect extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      events: []
     };
   }
 
   componentDidMount() {
-    fetch("https://api.example.com/items")
+    fetch("https://api.meetup.com/torc-nc/events?photo-host=public&page=20&sig_id=259358047&sig=c03cc0afa57c58c7b2c36569d72c10144a3bf263")
       .then(res => res.json())
+      .then(json => console.log(json))
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.items
+            events: result.events
           });
+          console.log(result.events);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -35,7 +36,8 @@ class MyComponent extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, events } = this.state;
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -43,9 +45,9 @@ class MyComponent extends React.Component {
     } else {
       return (
         <ul>
-          {items.map(item => (
-            <li key={item.name}>
-              {item.name} {item.price}
+          {events.map(event => (
+            <li key={event.name}>
+              {event.name}
             </li>
           ))}
         </ul>
@@ -54,3 +56,5 @@ class MyComponent extends React.Component {
   }
 }
 // end code from "https://reactjs.org/docs/faq-ajax.html"
+
+export default Connect;
