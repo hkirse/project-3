@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-//FIXME:import EventCard from '../../components/EventCard';
+import EventCard from '../../components/EventCard';
 
-// const API_KEY = "7dc5e202b7b3ee7419e3d42654353"; ***obtained API key from website***
+const API_KEY = "7523326462482714222e6e5c49322f46";
 
 class Connect extends Component {
   constructor(props) {
@@ -14,13 +14,13 @@ class Connect extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.meetup.com/torc-nc/events?photo-host=public&page=20&sig_id=259358047&sig=01606d3709043fff8d5efc612870ea93595c5177")
+    fetch(`https://api.meetup.com/events?key=${API_KEY}&group_urlname=torc-nc&page=20&sign=true`)
       .then(res => res.json())
-      .then((result) => {
+      .then((json) => {
         this.setState({
           error: null,
           isLoaded: true,
-          events: result
+          events: json.results
         });
       })
       .catch((error) => {
@@ -34,23 +34,37 @@ class Connect extends Component {
 
   render() {
     const { error, isLoaded, events } = this.state;
+    const array = this.state.events;
+
+    const regex = /(<([^>]+)>)/ig;
     // Log it out!
-    console.log(events);
+    if (events[0]) {
+      console.log(events);
+    }
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
-        // <EventCard
-          <ul>
-            {events.map(event => (
-              <li key={event.id}>
-                {event.name}
-              </li>
-            ))}
-          </ul>
-        // />
+        <div className="container">
+          {array.map(event => (
+          <EventCard
+            key={event.id}
+            name={event.name}
+            image={event.photo_url}
+            time={event.utc_time}
+            venue_name={event.venue_name}
+            venue_street={event.venue_address1}
+            venue_city={event.venue_city}
+            venue_state={event.venue_state}
+            rsvpcount={event.rsvpcount}
+            >
+            {event.description.replace(regex, '')}
+          </EventCard>
+          ))}
+        </div>
       );
     }
   }
