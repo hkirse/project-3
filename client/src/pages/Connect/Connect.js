@@ -60,6 +60,7 @@ class Connect extends Component {
             venue_street={event.venue_address1}
             venue_city={event.venue_city}
             venue_state={event.venue_state}
+            venue_zip={event.venue_zip}
             rsvpcount={event.rsvpcount}
             link={event.event_url}
             >
