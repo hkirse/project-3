@@ -37,6 +37,7 @@ class Connect extends Component {
     const array = this.state.events;
 
     const regex = /(<([^>]+)>)/ig;
+    
     // Log it out!
     if (events[0]) {
       console.log(events);
@@ -48,7 +49,7 @@ class Connect extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className="container">
+        <div className="container-fluid">
           {array.map(event => (
           <EventCard
             key={event.id}
