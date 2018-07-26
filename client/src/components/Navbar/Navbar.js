@@ -37,7 +37,7 @@ class Navbar extends React.Component {
             }
           >
           <Link to="/" className="nav-link">
-              Home
+            Home
           </Link>
           </li>
           <li
@@ -48,7 +48,7 @@ class Navbar extends React.Component {
             }
           >
           <Link to="/personal" className="nav-link">
-              Personal
+            Personal
           </Link>
           </li>
           <li
@@ -59,7 +59,7 @@ class Navbar extends React.Component {
             }
           >
           <Link to="/connect" className="nav-link">
-              Connect
+            Connect
           </Link>
           </li>
           <li
