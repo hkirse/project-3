@@ -2,7 +2,7 @@ const express = require('express')
 //User level imports
 const mu = require('../../controllers/meetup')
 // Variables
-const API_KEY = "7523326462482714222e6e5c49322f46";
+const API_KEY = "5f30605f91c6c327d1c63475a6d6538";
 
 
 module.exports = function () {

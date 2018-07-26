@@ -16,7 +16,6 @@ class Connect extends Component {
   componentDidMount() {
     API.getEvents()
       .then((json) => {
-        console.log(json)        
         this.setState({
           error: null,
           isLoaded: true,
@@ -24,7 +23,7 @@ class Connect extends Component {
         });
       })
       .catch((error) => {  
-        console.log(error)      
+        console.log(error)
         this.setState({
           events:[],
           isLoaded: true,
