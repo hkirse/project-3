@@ -6,6 +6,10 @@ nav {
   background-color: rgb(52, 114, 46);
 }
 
+.navbar {
+  position: absolute;
+}
+
 .navbar-brand, .nav-link {
   color: white;
 }

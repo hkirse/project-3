@@ -20,7 +20,7 @@ class App extends Component {
               <Route exact path="/connect" component={Connect} />
               {/* <Route exact path="/discover" component={Discover} /> */}
             </Switch>
-          </Wrapper>          
+          </Wrapper>
         </div>
       </Router>
     );

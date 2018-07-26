@@ -6,11 +6,11 @@ const HomeCard = props => (
     <div className="card h-100">
       <div className="card-body">
         <p className="card-text text-muted">{moment.unix(props.time).format("LLLL")}</p>
-        <h4 className="card-title">
+        <h5 className="card-title">
           {props.name}
-        </h4>
+        </h5>
         <img className="mb-3 rounded" src={props.image} alt="meetup" />
-        <h5 className="card-text"> {props.venue_name}</h5>
+        <h6 className="card-text"> {props.venue_name}</h6>
         {/* Two ternary operations to parse inconsistent location info */}
         {props.venue_street === ""
           ? <p className="card-text"><i className="fa fa-map-marker" aria-hidden="true"></i> Event needs a location...</p>
@@ -22,9 +22,7 @@ const HomeCard = props => (
         <a href={props.link} role="button" className="my-3 btn btn-block btn-info">Visit the event page</a>
       </div>
     </div>
-
-
-
+    
 );
 
 export default HomeCard;
