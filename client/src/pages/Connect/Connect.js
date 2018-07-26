@@ -1,56 +1,76 @@
+import React, { Component } from "react";
+import EventCard from '../../components/EventCard';
 
-import React from "react";
+const API_KEY = "7523326462482714222e6e5c49322f46";
 
-//  code from "https://reactjs.org/docs/faq-ajax.html"
-class MyComponent extends React.Component {
+class Connect extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      events: []
     };
   }
 
   componentDidMount() {
-    fetch("https://api.example.com/items")
+    fetch(`https://api.meetup.com/events?key=${API_KEY}&group_urlname=torc-nc&page=20&sign=true`)
       .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+      .then((json) => {
+        this.setState({
+          error: null,
+          isLoaded: true,
+          events: json.results
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          events:[],
+          isLoaded: true,
+          error
+        });
+      })
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, events } = this.state;
+    const array = this.state.events;
+
+    const regex = /(<([^>]+)>)/ig;
+    
+    // Log it out!
+    if (events[0]) {
+      console.log(events);
+    }
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
-        <ul>
-          {items.map(item => (
-            <li key={item.name}>
-              {item.name} {item.price}
-            </li>
+        <div className="container-fluid">
+          {array.map(event => (
+          <EventCard
+            key={event.id}
+            name={event.name}
+            image={event.photo_url}
+            time={event.utc_time}
+            venue_name={event.venue_name}
+            venue_street={event.venue_address1}
+            venue_city={event.venue_city}
+            venue_state={event.venue_state}
+            venue_zip={event.venue_zip}
+            rsvpcount={event.rsvpcount}
+            link={event.event_url}
+            >
+            {event.description.replace(regex, '')}
+          </EventCard>
           ))}
-        </ul>
+        </div>
       );
     }
   }
 }
-// end code from "https://reactjs.org/docs/faq-ajax.html"
+
+export default Connect;
