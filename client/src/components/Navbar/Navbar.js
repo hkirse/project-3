@@ -1,72 +1,91 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Login from '../../pages/Login';
 
-// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-const Navbar = props => (
-  <nav className="navbar navbar-expand-lg fixed-top">
-    <Link className="navbar-brand" to="/">
-      CrankHeads
+class Navbar extends React.Component {
+
+  state = {
+    loggedin: false,
+    modal: false
+  };
+
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+  render() {
+    return (
+      <nav className={window.location.pathname === "/" ||
+        window.location.pathname === "/home"
+        ? "navbar navbar-expand-lg fixed-top" : "navbar navbar-expand-lg"}>
+        <Link className="navbar-brand" to="/">
+          CrankHeads
     </Link>
-      <ul className="navbar-nav">
-        <li
-          className={
-            window.location.pathname === "/" ||
-            window.location.pathname === "/home"
-              ? "nav-item active"
-              : "nav-item"
-          }
-        >
-          <Link to="/" className="nav-link">
-            Home
+        <ul className="navbar-nav">
+          <li
+            className={
+              window.location.pathname === "/" ||
+                window.location.pathname === "/home"
+                ? "nav-item active"
+                : "nav-item"
+            }
+          >
+            <Link to="/" className="nav-link">
+              Home
           </Link>
-        </li>
-        <li
-          className={
-            window.location.pathname === "/personal"
-              ? "nav-item active"
-              : "nav-item"
-          }
-        >
-          <Link to="/personal" className="nav-link">
-            Personal
+          </li>
+          <li
+            className={
+              window.location.pathname === "/personal"
+                ? "nav-item active"
+                : "nav-item"
+            }
+          >
+            <Link to="/personal" className="nav-link">
+              Personal
           </Link>
-        </li>
-        <li
-          className={
-            window.location.pathname === "/connect"
-              ? "nav-item active"
-              : "nav-item"
-          }
-        >
-          <Link to="/connect" className="nav-link">
-            Connect
+          </li>
+          <li
+            className={
+              window.location.pathname === "/connect"
+                ? "nav-item active"
+                : "nav-item"
+            }
+          >
+            <Link to="/connect" className="nav-link">
+              Connect
           </Link>
-        </li>
-        <li
-          className={
-            window.location.pathname === "/discover"
-              ? "nav-item active"
-              : "nav-item"
-          }
-        >
-          <Link to="/discover" className="nav-link">
-            Discover
+          </li>
+          <li
+            className={
+              window.location.pathname === "/discover"
+                ? "nav-item active"
+                : "nav-item"
+            }
+          >
+            <Link to="/discover" className="nav-link">
+              Discover
           </Link>
-        </li>
-      </ul>
-      <div className="nav navbar-nav ml-auto">
-        <button
-          className=
-            "btn nav-item btn-outline-light"
+          </li>
+        </ul>
+        <div className="ml-auto">
+          <button
+            className=
+            "btn nav-item btn-outline-light ml-auto"
             type="submit"
-        >
-          <Link to="/login" className="nav-link">
+            onClick={this.toggle}
+          >
             Login
-          </Link>
         </button>
-      </div>
-  </nav>
-);
+          <Login toggle={this.toggle} open={this.state.modal} />
+        </div>
+      </nav>
+    )
+  }
+
+};
 
 export default Navbar;

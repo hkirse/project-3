@@ -3,6 +3,7 @@ const session = require('express-session');
 const bodyParser = require("body-parser");
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
+const bcrypt = require('bcrypt')
 
 // Setup and connect to the Mongo DB
 const mongoose = require("mongoose");

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import './App.css';
 import Home from './pages/Home';
+
 
 class App extends Component {
   render() {
@@ -12,11 +13,14 @@ class App extends Component {
         <div>
           <Navbar />
           <Wrapper>
-            <Route exact path="/" component={Home} />
-            {/* <Route exact path="/personal" component={Personal} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              {/*<Route exact path="/login" component={Login} />
+              <Route exact path="/personal" component={Personal} />
             <Route exact path="/connect" component={Connect} />
             <Route exact path="/discover" component={Discover} /> */}
-          </Wrapper>
+            </Switch>
+          </Wrapper>          
         </div>
       </Router>
     );
