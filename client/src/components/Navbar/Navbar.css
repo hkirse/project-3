@@ -1,7 +1,15 @@
-nav.navbar {
+nav.fixed-top {
   background-color: rgba(52, 114, 46, 0.5);
+}
+
+nav {
+  background-color: rgb(52, 114, 46);
 }
 
 .navbar-brand, .nav-link {
   color: white;
+}
+
+.active > .nav-link {
+  color: blue;
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Login from '../../pages/Login';
 
+
 class Navbar extends React.Component {
 
   state = {
@@ -18,17 +19,19 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className={window.location.pathname === "/" ||
+      <nav className={
+        window.location.pathname === "/" ||
         window.location.pathname === "/home"
-        ? "navbar navbar-expand-lg fixed-top" : "navbar navbar-expand-lg"}>
+          ? "navbar navbar-expand-lg fixed-top"
+          : "navbar navbar-expand-lg"}>
         <Link className="navbar-brand" to="/">
           CrankHeads
-    </Link>
+        </Link>
         <ul className="navbar-nav">
           <li
             className={
               window.location.pathname === "/" ||
-                window.location.pathname === "/home"
+              window.location.pathname === "/home"
                 ? "nav-item active"
                 : "nav-item"
             }
