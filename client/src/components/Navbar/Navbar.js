@@ -21,7 +21,7 @@ class Navbar extends React.Component {
     return (
       <nav className={
         window.location.pathname === "/" ||
-        window.location.pathname === "/home"
+          window.location.pathname === "/home"
           ? "navbar navbar-expand-lg fixed-top"
           : "navbar navbar-expand-lg"}>
         <Link className="navbar-brand" to="/">
@@ -36,7 +36,7 @@ class Navbar extends React.Component {
                 : "nav-item"
             }
           >
-            <Link to="/" className="nav-link">
+          <Link to="/" className="nav-link">
               Home
           </Link>
           </li>
@@ -47,7 +47,7 @@ class Navbar extends React.Component {
                 : "nav-item"
             }
           >
-            <Link to="/personal" className="nav-link">
+          <Link to="/personal" className="nav-link">
               Personal
           </Link>
           </li>
@@ -58,7 +58,7 @@ class Navbar extends React.Component {
                 : "nav-item"
             }
           >
-            <Link to="/connect" className="nav-link">
+          <Link to="/connect" className="nav-link">
               Connect
           </Link>
           </li>
@@ -69,7 +69,7 @@ class Navbar extends React.Component {
                 : "nav-item"
             }
           >
-            <Link to="/discover" className="nav-link">
+          <Link to="/discover" className="nav-link">
               Discover
           </Link>
           </li>
