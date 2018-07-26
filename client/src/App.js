@@ -13,7 +13,7 @@ class App extends Component {
         <div>
           <Navbar />
           <Wrapper>
-            <Route exact path="/" className="navbar navbar-expand-lg fixed-top" component={Home} />
+            <Route exact path="/" component={Home} />
             {/* <Route exact path="/personal" component={Personal} /> */}
             <Route exact path="/connect" component={Connect} />
             {/* <Route exact path="/discover" component={Discover} /> */}
