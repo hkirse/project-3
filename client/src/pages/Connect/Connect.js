@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import EventCard from '../../components/EventCard';
+import API from '../../utils/API';
 
-const API_KEY = "7523326462482714222e6e5c49322f46";
 
 class Connect extends Component {
   constructor(props) {
@@ -14,16 +14,17 @@ class Connect extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.meetup.com/events?key=${API_KEY}&group_urlname=torc-nc&page=20&sign=true`)
-      .then(res => res.json())
+    API.getEvents()
       .then((json) => {
+        console.log(json)        
         this.setState({
           error: null,
           isLoaded: true,
-          events: json.results
+          events:json.data.results
         });
       })
-      .catch((error) => {
+      .catch((error) => {  
+        console.log(error)      
         this.setState({
           events:[],
           isLoaded: true,
@@ -55,7 +56,7 @@ class Connect extends Component {
             key={event.id}
             name={event.name}
             image={event.photo_url}
-            time={event.utc_time}
+            time={(event.utc_time)/1000}
             venue_name={event.venue_name}
             venue_street={event.venue_address1}
             venue_city={event.venue_city}

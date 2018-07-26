@@ -3,15 +3,8 @@ import axios from "axios";
 // retrieve News from the server
 export default {
     // Fetch API stuff
-    getEvents: function ({topic, byear, eyear}) {
-        const data = {
-        params: {
-            topic: topic,
-            byear: byear,
-            eyear: eyear
-        }
-    }
-        return axios.get("/api/news/getnews",data);
+    getEvents: function () {
+        return axios.get("/api/meetup");
     },
     // Create new saved news in the database
     saveEvent: function (Data) {
@@ -32,5 +25,4 @@ export default {
     deleteSaved: function (id) {
         return axios.delete("/api/news/" + id);
     }
-
 };

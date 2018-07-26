@@ -7,7 +7,7 @@ const EventCard = props => (
     <div className="card-body">
       <div className="row">
         <div className="col-md-9">
-          <p className="card-text text-muted">{moment.utc(props.utc_time).format("LLLL")}</p>
+          <p className="card-text text-muted">{moment.unix(props.time).format("LLLL")}</p>
           <h4 className="card-title">
             {props.name}
           </h4>
