@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import HomeCard from '../../components/HomeCard';
 import API from '../../utils/API';
 import Jumbotron from '../../components/Jumbotron';
-import Title from '../../components/Title';
+import Title from '../../components/HomeTitle';
 
 
 class Home extends Component {

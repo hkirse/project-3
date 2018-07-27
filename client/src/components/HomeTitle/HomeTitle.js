@@ -1,7 +1,7 @@
 import React from 'react';
-import './Title.css';
+import './HomeTitle.css';
 
-const Title = props => (
+const HomeTitle = props => (
   <div className="row">
     <h2 className="mx-auto mb-4 title">
       Most Popular Upcoming Events!
@@ -10,4 +10,4 @@ const Title = props => (
 
 );
 
-export default Title;
+export default HomeTitle;
