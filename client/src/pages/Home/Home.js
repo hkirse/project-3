@@ -54,10 +54,10 @@ class Home extends Component {
       return (
         <div>
           <Jumbotron />
-          <div className="container">
             <Title />
+          <div className="container-fluid">
             <div className="row h-100">
-              <div className="card-deck">
+              <div className="card-deck mx-1">
                 {array.map(event => (
                 <HomeCard
                   key={event.id}

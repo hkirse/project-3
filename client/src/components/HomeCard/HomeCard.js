@@ -18,7 +18,7 @@ const HomeCard = props => (
             ? <p className="card-text"><i className="fa fa-map-marker" aria-hidden="true"></i> {props.venue_street}</p>
             : <p className="card-text"><i className="fa fa-map-marker" aria-hidden="true"></i> {props.venue_street} • {props.venue_city}, {props.venue_state} {props.venue_zip}</p>
         }
-        <h5 className="card-text mb-3">{props.rsvpcount} people are going to this event!</h5>
+        <h5 className="card-text mb-2">{props.rsvpcount} people are going to this event!</h5>
         <a href={props.link} role="button" className="mt-auto btn btn-block btn-info">Visit the event page</a>
       </div>
     </div>

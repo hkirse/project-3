@@ -6,13 +6,18 @@ const EventCard = props => (
   <div className="card m-3">
     <div className="card-body">
       <div className="row">
-        <div className="col-md-9">
+        <div className="col-md-9 px-3">
           <p className="card-text text-muted">{moment.unix(props.time).format("LLLL")}</p>
           <h4 className="card-title">
             {props.name}
           </h4>
           <p className="card-text desc">
-            {props.children}
+          {/* Cutoff description if too long to keep card heights manageable */}
+            {
+              props.children.length < 1700
+                ? props.children
+                : props.children.substring(0, 1700) + '...'
+            }
           </p>
         </div>
         <div className="col-md-3">
