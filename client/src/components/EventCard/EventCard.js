@@ -12,7 +12,7 @@ const EventCard = props => (
             {props.name}
           </h4>
           <p className="card-text desc">
-          {/* Cutoff description if too long to keep card heights manageable */}
+            {/* Cutoff description if too long to keep card heights manageable */}
             {
               props.children.length < 1700
                 ? props.children
