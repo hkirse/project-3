@@ -4,7 +4,7 @@ import moment from 'moment';
 
 const HomeCard = props => (
     <div className="card h-100">
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <p className="card-text text-muted">{moment.unix(props.time).format("LLLL")}</p>
         <h5 className="card-title">
           {props.name}
@@ -19,7 +19,7 @@ const HomeCard = props => (
             : <p className="card-text"><i className="fa fa-map-marker" aria-hidden="true"></i> {props.venue_street} • {props.venue_city}, {props.venue_state} {props.venue_zip}</p>
         }
         <h5 className="card-text mb-3">{props.rsvpcount} people are going to this event!</h5>
-        <a href={props.link} role="button" className="btn btn-block btn-info">Visit the event page</a>
+        <a href={props.link} role="button" className="mt-auto btn btn-block btn-info">Visit the event page</a>
       </div>
     </div>
     
