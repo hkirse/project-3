@@ -23,7 +23,14 @@ class Navbar extends React.Component {
         window.location.pathname === "/" ||
           window.location.pathname === "/home"
           ? "navbar navbar-expand-lg fixed-top"
-          : "navbar navbar-expand-lg"}>
+          : "navbar navbar-expand-lg"}
+        style={
+          window.location.pathname === "/" ||
+          window.location.pathname === "/home"
+            ? {position: "absolute"}
+            : {position: "relative"}
+        }
+          >
         <Link className="navbar-brand" to="/">
           CrankHeads
         </Link>
