@@ -54,23 +54,25 @@ class Home extends Component {
         <div>
           <Jumbotron />
           <div className="container-fluid">
-            <div className="card-deck">
-              {array.map(event => (
-              <HomeCard
-                key={event.id}
-                name={event.name}
-                image={event.photo_url}
-                time={(event.utc_time)/1000}
-                venue_name={event.venue_name}
-                venue_street={event.venue_address1}
-                venue_city={event.venue_city}
-                venue_state={event.venue_state}
-                venue_zip={event.venue_zip}
-                rsvpcount={event.rsvpcount}
-                link={event.event_url}
-                >
-              </HomeCard>
-              ))}
+            <div className="row h-100">
+              <div className="card-deck">
+                {array.map(event => (
+                <HomeCard
+                  key={event.id}
+                  name={event.name}
+                  image={event.photo_url}
+                  time={(event.utc_time)/1000}
+                  venue_name={event.venue_name}
+                  venue_street={event.venue_address1}
+                  venue_city={event.venue_city}
+                  venue_state={event.venue_state}
+                  venue_zip={event.venue_zip}
+                  rsvpcount={event.rsvpcount}
+                  link={event.event_url}
+                  >
+                </HomeCard>
+                ))}
+              </div>
             </div>
           </div>
         </div>
