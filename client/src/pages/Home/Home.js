@@ -54,8 +54,8 @@ class Home extends Component {
       return (
         <div>
           <Jumbotron />
-            <Title />
           <div className="container-fluid">
+            <Title />
             <div className="row h-100">
               <div className="card-deck mx-1">
                 {array.map(event => (
