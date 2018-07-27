@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HomeCard from '../../components/HomeCard';
 import API from '../../utils/API';
 import Jumbotron from '../../components/Jumbotron';
+import Title from '../../components/Title';
 
 
 class Home extends Component {
@@ -54,6 +55,7 @@ class Home extends Component {
         <div>
           <Jumbotron />
           <div className="container">
+            <Title />
             <div className="row h-100">
               <div className="card-deck">
                 {array.map(event => (
