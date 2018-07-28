@@ -14,7 +14,7 @@ const HomeCard = props => (
       {/* Two ternary operations to parse inconsistent location info */}
       {
         props.venue_street === ""
-          ? <p className="card-text"><i className="fa fa-map-marker" aria-hidden="true"></i> Event needs a location...</p>
+          ? <p className="card-text"><i className="fa fa-map-marker fa-lg" aria-hidden="true"></i> Event needs a location...</p>
           : props.venue_street.includes(',')
             ? <p className="card-text"><i className="fa fa-map-marker fa-lg" aria-hidden="true"></i> {props.venue_street}</p>
             : <p className="card-text"><i className="fa fa-map-marker fa-lg" aria-hidden="true"></i> {props.venue_street} • {props.venue_city}, {props.venue_state} {props.venue_zip}</p>
