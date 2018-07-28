@@ -31,7 +31,7 @@ const EventCard = props => (
               : <p className="card-text"><i className="fa fa-map-marker fa-lg" aria-hidden="true"></i> {props.venue_street} • {props.venue_city}, {props.venue_state} {props.venue_zip}</p>
           }
           <p className="card-text">{props.rsvpcount} people are going to this event!</p>
-          <a href={props.link} role="button" className="mt-auto btn btn-block btn-info">Visit the event page</a>
+          <a href={props.link} role="button" className="mt-auto btn btn-block btn-info">Visit this event page</a>
         </div>
       </div>
     </div>
