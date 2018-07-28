@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 
 
 const TrailCard = props => (
-  <div className="card">
+  <div className="card cardTrail">
     <div className="img-container">
       <img alt={props.name} src={props.image} />
     </div>
