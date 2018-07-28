@@ -3,16 +3,16 @@ const bcrypt = require('bcrypt');
 
 module.exports = function (connection) {
     return {
-        authenticateUser: function (username, password, done) {
+        authenticateUser: function (username, password, done) {            
             connection.model('User').findOne({ username })
                 .exec()
                 .then(user => {
                     return bcrypt.compare(password, user.password)
                         .then(function (samePassword) {
-                            if (!samePassword) {
+                            if (!samePassword) {                                
                                 done(null, false);
                             }
-                            else {
+                            else {                                
                                 done(null, user)
                             }
                         })
@@ -25,12 +25,12 @@ module.exports = function (connection) {
                     done(err)
                 });
         },
-        serializeUser: function (user, done) {
+        serializeUser: function (user, done) {            
             done(null, user.id)
         },
         deserializeUser: function (id, done) {
             uc.getUser(connection, id)
-                .then(user => {
+                .then(user => {                   
                     done(null, user)
                 })
                 .catch(err => {

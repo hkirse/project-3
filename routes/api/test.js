@@ -7,7 +7,7 @@ module.exports = function(){
     const Router = express.Router()
     //We use this route to see if a user is logged in.
     Router.get('/specific', middleware.checkAuthentication, function(req, res){
-        res.json({success: true})
+        res.json({success: true, user:req.user.firstName})
     })
     //We use this route just to see if we can hit the server.
     Router.get('/general', function(req, res){
