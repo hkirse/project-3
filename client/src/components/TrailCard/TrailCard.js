@@ -1,6 +1,6 @@
 import React from "react";
 import "./TrailCard.css";
-import { Button } from 'react-bootstrap';
+import { Button } from 'reactstrap';
 
 
 const TrailCard = props => (

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Home from './pages/Home';
 import Connect from './pages/Connect';
+import Discover from './pages/Discover';
 import './App.css';
 
 
@@ -18,7 +19,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               {/* <Route exact path="/personal" component={Personal} /> */}
               <Route exact path="/connect" component={Connect} />
-              {/* <Route exact path="/discover" component={Discover} /> */}
+              <Route exact path="/discover" component={Discover} />
             </Switch>
           </Wrapper>
         </div>

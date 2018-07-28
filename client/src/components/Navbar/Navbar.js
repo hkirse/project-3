@@ -2,20 +2,55 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Login from '../../pages/Login';
-
+import API from "../../utils/API";
 
 class Navbar extends React.Component {
 
   state = {
     loggedin: false,
-    modal: false
+    modal: false,
+    screenName:"",
+    button:"Login"
   };
 
-  toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
+  componentDidMount() {
+    this.check_login();
   }
+
+  check_login = () => {
+    API.loginTest().then(res=>{      
+      if (res.data.success){
+        this.setState({
+          screenName:res.data.user,
+          button:"Logout"
+        });
+      }
+    }).catch(err =>
+      this.setState({
+        screenName:"",
+        button:"Login"
+      })
+    )
+  }
+
+  toggle = () => {
+    this.check_login()
+      this.setState({
+        modal: !this.state.modal,
+      })
+  };
+
+  userLogout = () => {
+    API.logoutUser().then(res=>{
+      console.log(res)
+      this.setState({
+        screenName:"",
+        button:"Login"
+      })
+    }
+    );  
+  }
+    
 
   render() {
     return (
@@ -74,14 +109,15 @@ class Navbar extends React.Component {
           </Link>
           </li>
         </ul>
-        <div className="ml-auto">
+        <div className="ml-auto d-flex flex-row">   
+        <h1><span className="badge badge-pill badge-warning mr-3">{this.state.screenName}</span></h1>
           <button
             className=
             "btn nav-item btn-outline-light ml-auto"
             type="submit"
-            onClick={this.toggle}
+            onClick={this.state.button==="Login" ? this.toggle : this.userLogout}
           >
-            Login
+            {this.state.button}
         </button>
           <Login toggle={this.toggle} open={this.state.modal} />
         </div>

@@ -1,4 +1,4 @@
-.card {
+.cardTrail {
     background: #fff;
     border-radius: 2px;
     /* height: 400px; */
@@ -9,26 +9,26 @@
     text-align: left;
   }
   
-  .card > .img-container {
+  .cardTrail > .img-container {
     height: 60%;
     overflow: hidden;
     text-align: center;
   }
-  .card > .img-container > img {
+  .cardTrail > .img-container > img {
     width: 100%
   }
   
-  .card > .content {
+  .cardTrail > .content {
     padding-left: 1rem; 
     padding-right: 1rem;
     font-size: 15px;
   }
   
-  .card > .content > ol {
+  .cardTrail > .content > ol {
     list-style-type: none;
   }
   
-  .card > .content > ol > li {
+  .cardTrail > .content > ol > li {
     margin-top: 5px;
   }
   

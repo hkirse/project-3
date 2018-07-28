@@ -17,17 +17,20 @@ class Login extends React.Component {
     };
     
     handleFormSubmit = event => {
-        event.preventDefault();
+        event.preventDefault();  
         if (this.state.username && this.state.password) {
-            API.loginUser({
+            const Data={
                 username: this.state.username,
                 password: this.state.password
-            })
+            }
+            API.loginUser(Data)
                 .then(res => {
-                    console.log(res)
-                    this.props.toggle();
+                    this.props.toggle();                                        
                 })
-                .catch(err => console.log(err));
+                .catch(err => {
+                    console.log(err);
+                    alert("Invalid username and/or Password! Please Try Again")
+                });
         }
     };
     
@@ -41,7 +44,7 @@ class Login extends React.Component {
                     <h3 className="text-center">Please Login</h3>
                 </CardHeader>
                 <CardBody>
-                    <Form>
+                    <Form onSubmit={this.handleFormSubmit}>
                         <FormGroup>
                             <Label for="username">User Name</Label>
                             <Input 
@@ -56,14 +59,16 @@ class Login extends React.Component {
                             <Input name="password"
                              placeholder="Password" 
                              id="upassword" 
+                             type='password'
                              onChange={this.handleInputChange}
                              aria-label="textbox for user password input" />
                         </FormGroup>
+                        <Button color="primary" type="submit" id="SubBtn" >Submit</Button>
                     </Form>
                 </CardBody>
                 <CardFooter className="d-flex justify-content-between">
                     <Button color="secondary" onClick={this.props.toggle}>Register</Button>
-                    <Button color="primary" onClick={this.handleFormSubmits}>Submit</Button>{' '}
+                    {' '}
                 </CardFooter>
                 </Card>
             </Modal>

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import TrailCard from "./components/TrailCard";
-import TrailWrapper from "./components/TrailWrapper";
-import Title from "./components/Title";
-import cities from "./cities.json";
+import TrailCard from "../../components/TrailCard";
+import TrailWrapper from "../../components/TrailWrapper";
+import Title from "../../components/Title";
+import cities from "../../cities.json";
+import API from "../../utils/API";
 
-const key = '200314086-a6397adc73378ff9a37d61db5ae8145e';
 
-class App extends Component {
+class Discover extends Component {
   constructor(props) {
     super(props);
 
@@ -53,11 +52,15 @@ class App extends Component {
   handleSubmit = selectedOption => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     selectedOption.preventDefault();
-    const lat = this.state.lat;
-    const long = this.state.long;
-    const distance = this.state.distance;
+    const data= {
+        params:{
+        lat: this.state.lat,
+        long: this.state.long,
+        distance: this.state.distance
+        }
+    }
 
-    axios.get(`https://www.mtbproject.com/data/get-trails?lat=${lat}&lon=${long}&maxDistance=${distance}&maxResults=16&minStars=2&key=${key}`)
+    API.getTrails(data)
       .then(result =>
         this.setState({
           trails: result.data.trails,
@@ -79,9 +82,9 @@ class App extends Component {
             ))}
         </select>
         <label>Level of Desired Difficulty
-        <select id="selectedDiff" onChange={this.handleChangeDifficulty}>
+        <select id="selectedDiff" onChange={this.handleChangeDifficulty} defaultValue="greenBlue">
             <option id="easy" value="green">Easy</option>
-            <option id="beginner" value="greenBlue" selected="selected">Beginner</option>
+            <option id="beginner" value="greenBlue">Beginner</option>
             <option id="intermediate" value="blue">Intermediate</option>
             <option id="advanced" value="blueBlack">Advanced</option>
             <option id="Expert" value="dblack">Expert</option>
@@ -119,4 +122,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Discover;
