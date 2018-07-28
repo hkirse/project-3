@@ -63,7 +63,7 @@ class Connect extends Component {
             venue_zip={event.venue_zip}
             rsvpcount={event.rsvpcount}
             link={event.event_url}
-            >
+          >
             {event.description.replace(regex, '')}
           </EventCard>
           ))}
