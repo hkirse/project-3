@@ -35,7 +35,7 @@ const TrailCard = props => (
   //   </div>
   // </div>
 
-  <div className="card card-trail my-2 mx-2">
+  <div className="card card-trail my-2">
     <div className="card-body d-flex flex-column">
 
       <h4 className="card-title">{props.name}</h4>

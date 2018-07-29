@@ -107,10 +107,10 @@ class Discover extends Component {
           </div>
           <button className="btn btn-info mx-auto mt-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
         </form>
-        <div className="container-fluid py-4">
+        <div className="container-fluid p-4">
           <Title>Trails List</Title>
           <div className="row h-100">
-            <div className="card-columns mx-1">
+            <div className="card-columns mx-3">
               {this.state.trails.map(trail => (
                 <TrailCard
                   key={trail.id}
