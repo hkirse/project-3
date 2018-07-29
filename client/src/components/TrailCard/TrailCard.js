@@ -46,7 +46,8 @@ const TrailCard = props => (
       <p className="card-text"><b>Trail Rating: </b>{props.stars}</p>
       <p className="card-text"><b>Difficulty: </b>{props.difficulty}</p>
       <a href={props.url} role="button" className="btn btn-info mr-auto" target="_blank">View Trail on MTB Project</a>
-      <a onClick={API.saveEvent} role="button" className="btn btn-info ml-auto btn-warning">Save Trail</a>
+      {/* TODO: do the right thing with the onClick event */}
+      <a onClick={API.saveEvent} role="button" className="btn ml-auto btn-secondary text-white">Save Trail</a>
 
     </div>
   </div>
