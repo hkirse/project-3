@@ -1,6 +1,7 @@
 [
     {
-      "city": "Select one"
+      "city": "Select one",
+      "id": 0
     },
     {
       "id": 1,

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import TrailCard from "../../components/TrailCard";
-import TrailWrapper from "../../components/TrailWrapper";
 import Title from "../../components/Title";
 import cities from "../../cities.json";
 import API from "../../utils/API";
+import Jumbotron from '../../components/Jumbotron';
 
 
 class Discover extends Component {
@@ -52,12 +52,12 @@ class Discover extends Component {
   handleSubmit = selectedOption => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     selectedOption.preventDefault();
-    const data= {
-        params:{
+    const data = {
+      params: {
         lat: this.state.lat,
         long: this.state.long,
         distance: this.state.distance
-        }
+      }
     }
 
     API.getTrails(data)
@@ -70,53 +70,63 @@ class Discover extends Component {
       }));
   }
 
-
   render() {
     return (
       <div>
-        <label>Select the nearest city for trails to ride: </label>
-        <select onChange={this.handleChangeCity} value={this.state.city}>
-          {this.state.cities.map(e =>
-            (<option value={e.city} key={e.id}>
-              {e.city}</option>
-            ))}
-        </select>
-        <label>Level of Desired Difficulty
-        <select id="selectedDiff" onChange={this.handleChangeDifficulty} defaultValue="greenBlue">
-            <option id="easy" value="green">Easy</option>
-            <option id="beginner" value="greenBlue">Beginner</option>
-            <option id="intermediate" value="blue">Intermediate</option>
-            <option id="advanced" value="blueBlack">Advanced</option>
-            <option id="Expert" value="dblack">Expert</option>
-          </select>
-        </label>
-        <label>Maximum Distance (in miles)
-        <select id="selectedDist" onChange={this.handleChangeDistance}>
-            <option id="10" value="10">10</option>
-            <option id="20" value="20">20</option>
-            <option id="30" value="30">30</option>
-            <option id="40" value="40">40</option>
-            <option id="50" value="50">50</option>
-          </select>
-        </label>
-        <button onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
-        <TrailWrapper>
+        <Jumbotron />
+        <form className="form-inline">
+          <div className="form-group mx-auto">
+
+            <label>Select the nearest city for trails to ride: </label>
+            <select className="custom-select" onChange={this.handleChangeCity} value={this.state.city}>
+              {this.state.cities.map(e =>
+                (<option value={e.city} key={e.id}>
+                  {e.city}</option>
+                ))}
+            </select>
+          </div>
+          <div className="form-group mx-auto">
+            <label>Level of Desired Difficulty: </label>
+            <select className="custom-select" id="selectedDiff" onChange={this.handleChangeDifficulty} defaultValue="greenBlue">
+              <option id="easy" value="green">Easy</option>
+              <option id="beginner" value="greenBlue">Beginner</option>
+              <option id="intermediate" value="blue">Intermediate</option>
+              <option id="advanced" value="blueBlack">Advanced</option>
+              <option id="Expert" value="dblack">Expert</option>
+            </select>
+          </div>
+          <div className="form-group mx-auto">
+            <label>Maximum Distance (in miles): </label>
+            <select className="custom-select" id="selectedDist" onChange={this.handleChangeDistance}>
+              <option id="10" value="10">10</option>
+              <option id="20" value="20">20</option>
+              <option id="30" value="30">30</option>
+              <option id="40" value="40">40</option>
+              <option id="50" value="50">50</option>
+            </select>
+          </div>
+          <button className="btn btn-info mx-auto mt-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
+        </form>
+        <div className="container-fluid py-4">
           <Title>Trails List</Title>
-          {this.state.trails.map(trail => (
-            <TrailCard
-              id={trail.id}
-              key={trail.id}
-              name={trail.name}
-              image={trail.imgMedium}
-              difficulty={trail.difficulty}
-              location={trail.location}
-              summary={trail.summary}
-              length={trail.length}
-              stars={trail.stars}
-              url={trail.url}
-            />
-          ))}
-        </TrailWrapper>
+          <div className="row h-100">
+            <div className="card-columns mx-1">
+              {this.state.trails.map(trail => (
+                <TrailCard
+                  key={trail.id}
+                  name={trail.name}
+                  image={trail.imgMedium}
+                  difficulty={trail.difficulty}
+                  location={trail.location}
+                  summary={trail.summary}
+                  length={trail.length}
+                  stars={trail.stars}
+                  url={trail.url}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
