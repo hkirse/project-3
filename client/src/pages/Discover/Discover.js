@@ -67,6 +67,8 @@ class Discover extends Component {
       }));
   }
 
+
+
   render() {
     return (
       <div>
@@ -82,16 +84,6 @@ class Discover extends Component {
                     (<option value={e.city} key={e.id}>
                       {e.city}</option>
                     ))}
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Level of Difficulty: </label>
-                <select className="custom-select w-75" id="selectedDiff" onChange={this.handleChangeDifficulty} defaultValue="greenBlue">
-                  <option id="easy" value="green">Easy</option>
-                  <option id="beginner" value="greenBlue">Beginner</option>
-                  <option id="intermediate" value="blue">Intermediate</option>
-                  <option id="advanced" value="blueBlack">Advanced</option>
-                  <option id="Expert" value="dblack">Expert</option>
                 </select>
               </div>
               <div className="form-group">

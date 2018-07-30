@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 module.exports = function(connection){
     const RidesSchema = new mongoose.Schema({
+        street: String,
         city: String,
-        rating: String,
-        lat: String,
-        lon: String
+        state: String,
+        zip: String
     })
     connection.model('Ride', RidesSchema)
 }
