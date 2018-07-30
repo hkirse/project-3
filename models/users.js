@@ -4,7 +4,8 @@ module.exports = function(connection){
         username: String,
         password: String,
         firstName: String,
-        lastName: String
+        lastName: String,
+        email: String,
     })
     connection.model('User', UserSchema)
 }
