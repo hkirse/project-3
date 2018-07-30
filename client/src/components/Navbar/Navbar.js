@@ -56,12 +56,14 @@ class Navbar extends React.Component {
     return (
       <nav className={
         window.location.pathname === "/" ||
-          window.location.pathname === "/home"
+        window.location.pathname === "/home" ||
+        window.location.pathname === "/discover"
           ? "navbar navbar-expand-lg fixed-top"
           : "navbar navbar-expand-lg"}
         style={
           window.location.pathname === "/" ||
-          window.location.pathname === "/home"
+          window.location.pathname === "/home" ||
+          window.location.pathname === "/discover"
             ? {position: "absolute"}
             : {position: "relative"}
         }
