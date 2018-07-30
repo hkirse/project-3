@@ -1,5 +1,6 @@
 import React from 'react';
 import './EventCard.css';
+import API from "../../utils/API";
 import moment from 'moment';
 
 const EventCard = props => (
@@ -32,6 +33,8 @@ const EventCard = props => (
           }
           <p className="card-text">{props.rsvpcount} people are going to this event!</p>
           <a href={props.link} role="button" className="mt-auto btn btn-block btn-info">Visit this event page</a>
+          {/* TODO: do the right thing with the onClick event */}
+          <a onClick={API.saveEvent} role="button" className="mt-3 btn btn-block btn-outline-secondary">Save Event</a>
         </div>
       </div>
     </div>

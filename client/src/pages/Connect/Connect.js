@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EventCard from '../../components/EventCard';
 import API from '../../utils/API';
+import Title from "../../components/Title";
 
 
 class Connect extends Component {
@@ -19,13 +20,13 @@ class Connect extends Component {
         this.setState({
           error: null,
           isLoaded: true,
-          events:json.data.results
+          events: json.data.results
         });
       })
-      .catch((error) => {  
+      .catch((error) => {
         console.log(error)
         this.setState({
-          events:[],
+          events: [],
           isLoaded: true,
           error
         });
@@ -37,7 +38,7 @@ class Connect extends Component {
     const array = this.state.events;
 
     const regex = /(<([^>]+)>)/ig;
-    
+
     // Log it out!
     if (events[0]) {
       console.log(events);
@@ -50,22 +51,23 @@ class Connect extends Component {
     } else {
       return (
         <div className="container-fluid">
+          <Title>Upcoming Events</Title>
           {array.map(event => (
-          <EventCard
-            key={event.id}
-            name={event.name}
-            image={event.photo_url}
-            time={(event.utc_time)/1000}
-            venue_name={event.venue_name}
-            venue_street={event.venue_address1}
-            venue_city={event.venue_city}
-            venue_state={event.venue_state}
-            venue_zip={event.venue_zip}
-            rsvpcount={event.rsvpcount}
-            link={event.event_url}
-          >
-            {event.description.replace(regex, '')}
-          </EventCard>
+            <EventCard
+              key={event.id}
+              name={event.name}
+              image={event.photo_url}
+              time={(event.utc_time) / 1000}
+              venue_name={event.venue_name}
+              venue_street={event.venue_address1}
+              venue_city={event.venue_city}
+              venue_state={event.venue_state}
+              venue_zip={event.venue_zip}
+              rsvpcount={event.rsvpcount}
+              link={event.event_url}
+            >
+              {event.description.replace(regex, '')}
+            </EventCard>
           ))}
         </div>
       );
