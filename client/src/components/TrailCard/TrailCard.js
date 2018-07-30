@@ -19,10 +19,6 @@ const TrailCard = props => {
       <p className="card-text"><b>Location: </b>{props.location}</p>
       <p className="card-text"><b>Trail Length: </b>{props.length} miles</p>
       <p className="card-text"><b>Trail Summary: </b>{props.summary}</p>
-<<<<<<< HEAD
-      <p className="card-text"><b>Trail Rating: </b>{props.rating}</p>
-      <p className="card-text"><b>Difficulty: </b>{props.difficulty}</p>
-=======
       <p className="card-text"><b>Trail Rating: </b>{props.stars}</p>
       <p className="card-text"><b>Difficulty:  </b>
         {(() => {
@@ -37,7 +33,6 @@ const TrailCard = props => {
           }
         })()}
       </p>
->>>>>>> 2e3a0e009032bb2d6126edd857a72466a21e6d65
       <a href={props.url} role="button" className="btn btn-info" target="_blank">View trail on MTB Project</a>
       {/* TODO: do the right thing with the onClick event */}
       <a onClick={API.saveTrail(trailData)} role="button" className="btn btn-outline-secondary mt-3">Save Trail</a>
