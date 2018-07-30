@@ -16,12 +16,12 @@ const TrailCard = props => (
       <p className="card-text"><b>Difficulty:  </b>
         {(() => {
           switch (props.difficulty) {
-            case "green":       return <img className="mb-3 diff" src="https://cdn.apstatic.com/img/diff/green.svg" alt="green" />;
-            case "greenBlue":   return <img className="mb-3 diff" src="https://cdn.apstatic.com/img/diff/greenBlue.svg" alt="greenBlue" />;
-            case "blue":        return <img className="mb-3 diff" src="https://cdn.apstatic.com/img/diff/blue.svg" alt="blue" />;
-            case "blueBlack":   return <img className="mb-3 diff" src="https://cdn.apstatic.com/img/diff/blueBlack.svg" alt="blueBlack" />;
-            case "black":       return <img className="mb-3 diff" src="https://cdn.apstatic.com/img/diff/black.svg" alt="black" />;
-            case "dblack":      return <img className="mb-3 diff" src="https://cdn.apstatic.com/img/diff/dblack.svg" alt="dblack" />;
+            case "green":       return <img className="diff" src="https://cdn.apstatic.com/img/diff/green.svg" alt="green" />;
+            case "greenBlue":   return <img className="diff" src="https://cdn.apstatic.com/img/diff/greenBlue.svg" alt="greenBlue" />;
+            case "blue":        return <img className="diff" src="https://cdn.apstatic.com/img/diff/blue.svg" alt="blue" />;
+            case "blueBlack":   return <img className="diff" src="https://cdn.apstatic.com/img/diff/blueBlack.svg" alt="blueBlack" />;
+            case "black":       return <img className="diff" src="https://cdn.apstatic.com/img/diff/black.svg" alt="black" />;
+            case "dblack":      return <img className="diff" src="https://cdn.apstatic.com/img/diff/dblack.svg" alt="dblack" />;
             default:            return (props.difficulty);
           }
         })()}
