@@ -10,38 +10,9 @@ const BCRYPT_SALT_ROUNDS = 8;
 module.exports = function () {
     //Create a Router instance, so we can mount routes on that and pass it up higher in the imports.
     const Router = express.Router()
-    //Get all the users.
-    Router.get('/users', function (req, res) {
-        uc.getUsers(req.connection)
-            .then(users => {
-                res.json(users)
-            })
-            .catch(err => {
-                console.log(err)
-                res.status(500)
-                res.json({
-                    err: 'Internal Server Error',
-                    message: 'Unable to get users.',
-                    stack: err
-                })
-            });
-    })
-    //Get a specific user by id.
-    Router.get('/users/:id', function (req, res) {
-        uc.getUsers(req.connection, [req.params.id])
-            .then(users => res.json(users[0]))
-            .catch(err => {
-                console.log(err)
-                res.status(500)
-                res.json({
-                    err: 'Internal Server Error',
-                    message: 'Unable to get user.',
-                    stack: err
-                })
-            })
-    })
-    //Add a new user. This is a protected route, so only logged in users can access this route.
-    Router.post('/users', function (req, res) {
+
+    //Add a new user.
+    Router.post('/register', function (req, res) {
         //bcrypt
         const {body:{password}}=req;
         bcrypt.hash(password, BCRYPT_SALT_ROUNDS)
@@ -60,9 +31,56 @@ module.exports = function () {
                     })
             })
     })
+    
+    //Search for duplicate register by email and username.
+    Router.get('/register', function (req, res) {
+        uc.searchUser(req.connection, [req.query])
+            .then(users => res.json(users[0]))
+            .catch(err => {
+                console.log(err)
+                res.status(500)
+                res.json({
+                    err: 'Internal Server Error',
+                    message: 'Unable to get user.',
+                    stack: err
+                })
+            })
+    })
+
+    //Get all the users.
+    Router.get('/users', function (req, res) {
+        uc.getUsers(req.connection)
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(500)
+                res.json({
+                    err: 'Internal Server Error',
+                    message: 'Unable to get users.',
+                    stack: err
+                })
+            });
+    })
+
+    //Get a specific user by id.
+    Router.get('/users/:id', function (req, res) {
+        uc.getUsers(req.connection, [req.params.id])
+            .then(users => res.json(users[0]))
+            .catch(err => {
+                console.log(err)
+                res.status(500)
+                res.json({
+                    err: 'Internal Server Error',
+                    message: 'Unable to get user.',
+                    stack: err
+                })
+            })
+    })
 
 
-    //Edits an existing user. This is a protected route, so only logged in users can access this route.
+    //Edits an existing user.
     Router.put('/users/:id', function (req, res) {
         uc.editUser(req.connection, req.params.id, req.body)
             .then(user => res.json(user))
@@ -76,7 +94,7 @@ module.exports = function () {
                 })
             })
     })
-    //Deletes a user. This is a protected route, so only logged in users can access this route.
+    //Deletes a user. 
     Router.delete('/users/:id', function (req, res) {
         uc.removeUser(req.connection, req.params.id)
             .then(user => res.json(user))

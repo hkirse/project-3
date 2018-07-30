@@ -1,12 +1,14 @@
 import React from 'react';
 import './Login.css';
 import { Button, Modal, Card, CardHeader, CardBody, CardFooter, Input, Form, FormGroup, Label } from 'reactstrap';
-import API from "../../utils/API";
+import {authenticate} from "../../libs/authenticate"
+import Registration from "../Registration"
 
 class Login extends React.Component {
     state={
         username:"",
-        password:""
+        password:"",
+        regmodalisOpen:false
     }
     
     handleInputChange = event => {
@@ -16,16 +18,20 @@ class Login extends React.Component {
         });
     };
     
+    toggle = () => {    
+        this.setState({
+            regmodalisOpen: !this.state.regmodalisOpen,
+        })
+    };
+
     handleFormSubmit = event => {
         event.preventDefault();  
         if (this.state.username && this.state.password) {
-            const Data={
-                username: this.state.username,
-                password: this.state.password
-            }
-            API.loginUser(Data)
+            const username= this.state.username;
+            const password= this.state.password;
+            authenticate(username, password)
                 .then(res => {
-                    this.props.toggle();                                        
+                    this.props.toggle();                                    
                 })
                 .catch(err => {
                     console.log(err);
@@ -67,11 +73,12 @@ class Login extends React.Component {
                     </Form>
                 </CardBody>
                 <CardFooter className="d-flex justify-content-between">
-                    <Button color="secondary" onClick={this.props.toggle}>Register</Button>
-                    {' '}
+                <span> Not a CrankHead yet? Become One today...</span>
+                    <Button color="secondary" onClick={this.toggle}>Register</Button>           
                 </CardFooter>
                 </Card>
             </Modal>
+            <Registration toggle={this.toggle} open={this.state.regmodalisOpen}/>
         </div>
     );
 }

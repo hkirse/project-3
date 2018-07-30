@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Login from '../../pages/Login';
-import API from "../../utils/API";
+import {deauthenticate, getUserData} from "../../libs/authenticate"
 
 class Navbar extends React.Component {
 
@@ -18,19 +18,18 @@ class Navbar extends React.Component {
   }
 
   check_login = () => {
-    API.loginTest().then(res=>{      
-      if (res.data.success){
+    const userInfo=getUserData()      
+    if (userInfo.firstName){
         this.setState({
-          screenName:res.data.user,
+          screenName:userInfo.firstName,
           button:"Logout"
         });
-      }
-    }).catch(err =>
-      this.setState({
+      } else {
+       this.setState({
         screenName:"",
         button:"Login"
       })
-    )
+    }
   }
 
   toggle = () => {
@@ -41,12 +40,13 @@ class Navbar extends React.Component {
   };
 
   userLogout = () => {
-    API.logoutUser().then(res=>{
-      console.log(res)
+    deauthenticate().then(res=>{
       this.setState({
         screenName:"",
         button:"Login"
       })
+      }).catch(err=>{
+        console.log("Logout Error")
     }
     );  
   }
@@ -117,7 +117,7 @@ class Navbar extends React.Component {
           </li>
         </ul>
         <div className="ml-auto d-flex flex-row">   
-        <h1><span className="badge badge-pill badge-warning mr-3">{this.state.screenName}</span></h1>
+        <h3><span className="badge badge-pill badge-warning mr-3">{this.state.screenName}</span></h3>
           <button
             className=
             "btn nav-item btn-outline-light ml-auto"
