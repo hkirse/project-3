@@ -25,7 +25,6 @@ class Discover extends Component {
   }
 
   handleChangeCity = (event) => {
-    // console.log("The event target is: " + event.target.value);
     const selectedCity = event.target.value;
     console.log("the selectedCity is: " + selectedCity);
     const cityGeo = cities.filter(e => e.city === selectedCity);
@@ -33,8 +32,6 @@ class Discover extends Component {
     const newLat = JSON.stringify(cityGeo[0].latitude);
     this.setState({ long: newLong });
     this.setState({ lat: newLat });
-    // console.log(`the new longitude is: ` + newLong);
-    // console.log(`the new latitude is: ` + newLat); 
   }
 
   handleChangeDistance = (event) => {
@@ -73,57 +70,58 @@ class Discover extends Component {
   render() {
     return (
       <div>
-        <Jumbotron />
-        <form className="form-inline">
-          <div className="form-group mx-auto">
-
-            <label>Select the nearest city for trails to ride: </label>
-            <select className="custom-select" onChange={this.handleChangeCity} value={this.state.city}>
-              {this.state.cities.map(e =>
-                (<option value={e.city} key={e.id}>
-                  {e.city}</option>
-                ))}
-            </select>
-          </div>
-          <div className="form-group mx-auto">
-            <label>Level of Desired Difficulty: </label>
-            <select className="custom-select" id="selectedDiff" onChange={this.handleChangeDifficulty} defaultValue="greenBlue">
-              <option id="easy" value="green">Easy</option>
-              <option id="beginner" value="greenBlue">Beginner</option>
-              <option id="intermediate" value="blue">Intermediate</option>
-              <option id="advanced" value="blueBlack">Advanced</option>
-              <option id="Expert" value="dblack">Expert</option>
-            </select>
-          </div>
-          <div className="form-group mx-auto">
-            <label>Maximum Distance (in miles): </label>
-            <select className="custom-select" id="selectedDist" onChange={this.handleChangeDistance}>
-              <option id="10" value="10">10</option>
-              <option id="20" value="20">20</option>
-              <option id="30" value="30">30</option>
-              <option id="40" value="40">40</option>
-              <option id="50" value="50">50</option>
-            </select>
-          </div>
-          <button className="btn btn-info mx-auto mt-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
-        </form>
-        <div className="container-fluid p-4">
+        <div>
+          <Jumbotron />
+          <div className="container-fluid">
           <Title>Trails List</Title>
-          <div className="row h-100">
-            <div className="card-columns mx-3">
-              {this.state.trails.map(trail => (
-                <TrailCard
-                  key={trail.id}
-                  name={trail.name}
-                  image={trail.imgMedium}
-                  difficulty={trail.difficulty}
-                  location={trail.location}
-                  summary={trail.summary}
-                  length={trail.length}
-                  stars={trail.stars}
-                  url={trail.url}
-                />
-              ))}
+            <form className="form-inline mb-3">
+              <div className="form-group ml-4">
+                <label>Select the nearest city for trails to ride: </label>
+                <select className="custom-select w-75" onChange={this.handleChangeCity} value={this.state.city}>
+                  {this.state.cities.map(e =>
+                    (<option value={e.city} key={e.id}>
+                      {e.city}</option>
+                    ))}
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Level of Difficulty: </label>
+                <select className="custom-select w-75" id="selectedDiff" onChange={this.handleChangeDifficulty} defaultValue="greenBlue">
+                  <option id="easy" value="green">Easy</option>
+                  <option id="beginner" value="greenBlue">Beginner</option>
+                  <option id="intermediate" value="blue">Intermediate</option>
+                  <option id="advanced" value="blueBlack">Advanced</option>
+                  <option id="Expert" value="dblack">Expert</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Total Length (in miles): </label>
+                <select className="custom-select w-75" id="selectedDist" onChange={this.handleChangeDistance}>
+                  <option id="10" value="10">10</option>
+                  <option id="20" value="20">20</option>
+                  <option id="30" value="30">30</option>
+                  <option id="40" value="40">40</option>
+                  <option id="50" value="50">50</option>
+                </select>
+              </div>
+              <button className="btn btn-info mt-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
+            </form>
+            <div className="row h-100">
+              <div className="card-columns mx-4">
+                {this.state.trails.map(trail => (
+                  <TrailCard
+                    key={trail.id}
+                    name={trail.name}
+                    image={trail.imgMedium}
+                    difficulty={trail.difficulty}
+                    location={trail.location}
+                    summary={trail.summary}
+                    length={trail.length}
+                    stars={trail.stars}
+                    url={trail.url}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
