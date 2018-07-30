@@ -2,8 +2,15 @@ import React from "react";
 import "./TrailCard.css";
 import API from "../../utils/API";
 
-const TrailCard = props => (
+const TrailCard = props => {
+  const trailData = {
+    name: props.name,
+    length: props.length,
+    rating: props.stars,
+    difficulty: props.difficulty
+  }
 
+  return(
   <div className="card card-trail m-2">
     <div className="card-body d-flex flex-column">
 
@@ -16,11 +23,12 @@ const TrailCard = props => (
       <p className="card-text"><b>Difficulty: </b>{props.difficulty}</p>
       <a href={props.url} role="button" className="btn btn-info" target="_blank">View trail on MTB Project</a>
       {/* TODO: do the right thing with the onClick event */}
-      <a onClick={API.saveTrail} role="button" className="btn btn-outline-secondary mt-3">Save Trail</a>
+      <a onClick={API.saveTrail(trailData)} role="button" className="btn btn-outline-secondary mt-3">Save Trail</a>
     </div>
   </div>
 
 
 );
+};
 
 export default TrailCard;
