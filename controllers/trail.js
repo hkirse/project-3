@@ -7,8 +7,8 @@ module.exports = {
           'key': Data.API_KEY,
           'lat': Data.lat,
           'lon': Data.long,
-          'maxDistance':Data.distance,
-          'maxResults':16,
+          'minLength':Data.distance,
+          'maxResults':20,
           'minStars':2
         },
       }

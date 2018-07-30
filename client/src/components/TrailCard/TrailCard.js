@@ -12,7 +12,7 @@ const TrailCard = props => (
       <p className="card-text"><b>Location: </b>{props.location}</p>
       <p className="card-text"><b>Trail Length: </b>{props.length} miles</p>
       <p className="card-text"><b>Trail Summary: </b>{props.summary}</p>
-      <p className="card-text"><b>Trail Rating: </b>{props.stars}</p>
+      <p className="card-text"><b>Trail Rating: </b>{props.rating}</p>
       <p className="card-text"><b>Difficulty: </b>{props.difficulty}</p>
       <a href={props.url} role="button" className="btn btn-info" target="_blank">View trail on MTB Project</a>
       {/* TODO: do the right thing with the onClick event */}

@@ -18,7 +18,7 @@ class Discover extends Component {
       selectedOption: null,
       lat: 0,
       long: 0,
-      distance: 100,
+      distance: 1,
       difficulty: null,
       selectedCity: ''
     };
@@ -73,7 +73,7 @@ class Discover extends Component {
         <div>
           <Jumbotron />
           <div className="container-fluid">
-          <Title>Trails List</Title>
+            <Title>Trails List</Title>
             <form className="form-inline mb-3">
               <div className="form-group ml-4">
                 <label>Select the nearest city for trails to ride: </label>
@@ -95,20 +95,22 @@ class Discover extends Component {
                 </select>
               </div>
               <div className="form-group">
-                <label>Total Length (in miles): </label>
+                <label>Minimum Length (in miles): </label>
                 <select className="custom-select w-75" id="selectedDist" onChange={this.handleChangeDistance}>
+                <option id="1" value="1">Who cares!</option>
+                <option id="5" value="5">5</option>
                   <option id="10" value="10">10</option>
+                  <option id="15" value="15">15</option>
                   <option id="20" value="20">20</option>
-                  <option id="30" value="30">30</option>
-                  <option id="40" value="40">40</option>
-                  <option id="50" value="50">50</option>
+                  <option id="25" value="25">25</option>
+                  <option id="30" value="30">30+ (Hurt me!)</option>
                 </select>
               </div>
               <button className="btn btn-info mt-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
             </form>
             <div className="row h-100">
               <div className="card-columns mx-4">
-                {this.state.trails.map(trail => (
+              {this.state.trails.map(trail => (
                   <TrailCard
                     key={trail.id}
                     name={trail.name}
