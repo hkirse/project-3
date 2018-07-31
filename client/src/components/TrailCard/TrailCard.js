@@ -21,14 +21,15 @@ const TrailCard = props => {
       <p className="card-text"><b>Location: </b>{props.location}</p>
       <p className="card-text"><b>Trail Length: </b>{props.length} miles</p>
       <p className="card-text"><b>Trail Summary: </b>{props.summary}</p>
-      <p className="card-text"><b>Trail Rating: </b>
+      <p className="card-text"><b>Trail Rating: </b></p>
       <StarRatings
-        rating={props.rating}
         starRatedColor="blue"
         numberOfStars={5}
         name='rating'
-      />
-      </p>
+      >
+        {props.rating}
+      </StarRatings>
+
       <p className="card-text"><b>Difficulty:  </b>
         {(() => {
           switch (props.difficulty) {
