@@ -77,7 +77,7 @@ class Discover extends Component {
           <iframe title = "mtb" style={{width:"100%", maxWidth:"1200px", height:"500px"}} frameborder="0" scrolling="no" src="https://www.mtbproject.com/widget/map?favs=1&location=fixed&x=-8916043&y=4248160&z=6.5&h=500"></iframe>
             <Title>Trails List</Title>
             <form className="form-inline mb-3">
-              <div className="form-group ml-4">
+              <div className="form-group mx-auto">
                 <label>Select the nearest city for trails to ride: </label>
                 <select className="custom-select w-75" onChange={this.handleChangeCity} value={this.state.city}>
                   {this.state.cities.map(e =>
@@ -86,7 +86,7 @@ class Discover extends Component {
                     ))}
                 </select>
               </div>
-              <div className="form-group">
+              <div className="form-group mx-auto">
                 <label>Minimum Length (in miles): </label>
                 <select className="custom-select w-75" id="selectedDist" onChange={this.handleChangeDistance}>
                 <option id="1" value="1">1</option>
@@ -98,7 +98,7 @@ class Discover extends Component {
                   <option id="30" value="30">30+ (Hurt me!)</option>
                 </select>
               </div>
-              <button className="btn btn-info mt-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
+              <button className="btn btn-info mt-auto mx-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
             </form>
             <div className="row h-100">
               <div className="card-columns mx-4">
