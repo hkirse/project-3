@@ -55,6 +55,17 @@ class Home extends Component {
         <div>
           <Jumbotron />
           <div className="container-fluid">
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">
+                  About Us
+                </h4>
+                <div className="card-text">
+                  CrankHeads is a site dedicated to bringing together the North Carolina mountain biking community. Our goal is to provide a space for mountain bikers to find rides, trails, meet-ups and also track your personal riding history.
+                  Sign up now by clicking the Login button and registering!
+                </div>
+              </div>
+            </div>
             <Title>Most Popular Upcoming Events</Title>
             <div className="row h-100">
               <div className="card-deck mx-1">
