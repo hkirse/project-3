@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import TrailCard from "../../components/TrailCard";
 //import EventCard from "../../components/EventCard";
 import Title from "../../components/Title";
@@ -8,6 +8,9 @@ import Calendar from '../../components/Calendar';
 import { Button, ButtonGroup, Card, Collapse, CardHeader, CardBody, CardFooter, Container, Row, Col } from 'reactstrap';
 import './Personal.css'
 import {getUserData} from "../../libs/authenticate"
+import ReactDropzone from 'react-dropzone';
+import request from "superagent";
+
 
 class Discover extends Component {
         state = {
@@ -53,12 +56,12 @@ class Discover extends Component {
                 }
             ],
             trails: [],
-            userInfo:{}
+            userInfo:{},
+            files: []
         }
-    
+      
     componentWillMount() {        
        this.getAllInfo()
-        
     }
 
     getAllInfo = () => {
@@ -77,8 +80,19 @@ class Discover extends Component {
         console.log(this.state)
     }
 
+    onPreviewDrop = (files) => {
+        this.setState({
+          files: this.state.files.concat(files),
+         });
+      }
+
 
     render() {
+        const previewStyle = {
+            display: 'inline',
+            width: 100,
+            height: 100,
+          };
         return (
             <div>
                 <Jumbotron>
@@ -103,6 +117,25 @@ class Discover extends Component {
                 </Jumbotron>
                 <div className="container-fluid">
                     <Title>Your Favorites</Title>
+                    <ReactDropzone
+          accept="image/*"
+          onDrop={this.onPreviewDrop}
+        >
+          Make a profile picture by dropping an image.  A preview will display below
+        </ReactDropzone>
+        {this.state.files.length > 0 &&
+          <Fragment>
+            <h3>Previews</h3>
+            {this.state.files.map((file) => (
+              <img
+                alt="Preview"
+                key={file.preview}
+                src={file.preview}
+                style={previewStyle}
+              />
+            ))}
+          </Fragment>
+        }
                     <div className="row h-100">
                         <div className="card-columns mx-4">
                             {this.state.trails.map(trail => (

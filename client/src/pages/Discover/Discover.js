@@ -4,6 +4,7 @@ import Title from "../../components/Title";
 import cities from "../../cities.json";
 import API from "../../utils/API";
 import Jumbotron from '../../components/Jumbotron';
+// import Jumbotron from '../../components/Jumbotron';
 
 
 class Discover extends Component {
@@ -77,7 +78,7 @@ class Discover extends Component {
           <div className="container-fluid">
             <Title>Trails List</Title>
             <form className="form-inline mb-3">
-              <div className="form-group ml-4">
+              <div className="form-group mx-auto">
                 <label>Select the nearest city for trails to ride: </label>
                 <select className="custom-select w-75" onChange={this.handleChangeCity} value={this.state.city}>
                   {this.state.cities.map(e =>
@@ -86,10 +87,10 @@ class Discover extends Component {
                     ))}
                 </select>
               </div>
-              <div className="form-group">
+              <div className="form-group mx-auto">
                 <label>Minimum Length (in miles): </label>
                 <select className="custom-select w-75" id="selectedDist" onChange={this.handleChangeDistance}>
-                <option id="1" value="1">Who cares!</option>
+                <option id="1" value="1">1</option>
                 <option id="5" value="5">5</option>
                   <option id="10" value="10">10</option>
                   <option id="15" value="15">15</option>
@@ -98,7 +99,7 @@ class Discover extends Component {
                   <option id="30" value="30">30+ (Hurt me!)</option>
                 </select>
               </div>
-              <button className="btn btn-info mt-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
+              <button className="btn btn-info mt-auto mx-auto" onClick={this.handleSubmit} id={this.state.id} key={this.state.key}>Submit</button>
             </form>
             <div className="row h-100">
               <div className="card-columns mx-4">
