@@ -8,7 +8,8 @@ const EventCard = props => {
     street: props.venue_street,
     city: props.venue_city,
     state: props.venue_state,
-    zip: props.venue_zip
+    zip: props.venue_zip,
+    time: props.time
   }
 
 return (

@@ -7,9 +7,11 @@ import StarRatings from 'react-star-ratings';
 const TrailCard = props => {
   const trailData = {
     name: props.name,
+    location: props.location,
     length: props.length,
     rating: props.stars,
-    difficulty: props.difficulty
+    difficulty: props.difficulty,
+    image: props.image
   }
 
   return (
