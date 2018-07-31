@@ -1,35 +1,43 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 module.exports = function(connection){
-    const UserSchema = new mongoose.Schema({
-        username: {
+    const EventsSchema = new mongoose.Schema({
+        name: {
             type: String,
             required: true
         },
-        password: {
+        street: {
             type: String,
             required: true
         },
-        firstName: {
+        city: {
             type: String,
             required: true
         },
-        lastName: {
+        state: {
             type: String,
             required: true
         },
-        email: {
+        zip: {
             type: String,
             required: true
         },
-        trails:[{
+        time: {
+            type: Date,
+            required: true
+        },
+        image: {
+            type: String,
+            required: true
+        },
+        link: {
+            type: String,
+            required: true
+        },
+        users: [{
             type: Schema.Types.ObjectId,
-            ref: "Trail"
-        }],
-        events:[{
-            type: Schema.Types.ObjectId,
-            ref: "Event"
+            ref: "User"
         }]
     })
-    connection.model('User', UserSchema)
+    connection.model('Event', EventsSchema)
 }

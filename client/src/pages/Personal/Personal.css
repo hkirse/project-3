@@ -1,0 +1,6 @@
+.PersonalCard {
+    background-color: rgba(2, 173, 164, 0.774);
+    border-radius: 2rem;
+    border:solid thin;
+    border-color: chartreuse
+}

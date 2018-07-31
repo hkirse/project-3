@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Home from './pages/Home';
+import Personal from './pages/Personal';
 import Connect from './pages/Connect';
 import Discover from './pages/Discover';
 import './App.css';
@@ -17,7 +18,7 @@ class App extends Component {
           <Wrapper>
             <Switch>
               <Route exact path="/" component={Home} />
-              {/* <Route exact path="/personal" component={Personal} /> */}
+              <Route exact path="/personal" component={Personal} />
               <Route exact path="/connect" component={Connect} />
               <Route exact path="/discover" component={Discover} />
             </Switch>
