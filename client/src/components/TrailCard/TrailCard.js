@@ -30,7 +30,7 @@ const TrailCard = props => {
             starSpacing="2px"
             rating={props.stars}
           />
-          {props.rating}
+          <span><b>  ({props.stars})</b></span>
         </p>
         <p className="card-text"><b>Difficulty:  </b>
           {(() => {
@@ -46,7 +46,6 @@ const TrailCard = props => {
           })()}
         </p>
         <a href={props.url} role="button" className="btn btn-info" target="_blank">View trail on MTB Project</a>
-        {/* TODO: do the right thing with the onClick event */}
         <a onClick={() => { API.saveTrail(trailData) }} role="button" className="btn btn-outline-secondary mt-3">Save Trail</a>
       </div>
     </div>
