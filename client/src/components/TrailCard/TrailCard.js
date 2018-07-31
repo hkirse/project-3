@@ -1,7 +1,6 @@
 import React from "react";
 import "./TrailCard.css";
 import API from "../../utils/API";
-// import StarRatings from '../Stars';
 import StarRatings from 'react-star-ratings';
 
 const TrailCard = props => {
@@ -22,7 +21,8 @@ const TrailCard = props => {
         <p className="card-text"><b>Location: </b>{props.location}</p>
         <p className="card-text"><b>Trail Length: </b>{props.length} miles</p>
         <p className="card-text"><b>Trail Summary: </b>{props.summary}</p>
-        <p className="card-text"><b>Trail Rating: </b>
+        <span>
+          <p className="card-text"><b>Trail Rating: </b></p>
           <StarRatings
             starRatedColor="orange"
             numberOfStars={5}
@@ -31,8 +31,8 @@ const TrailCard = props => {
             starSpacing="2px"
             rating={props.stars}
           />
-          <span><b>  ({props.stars})</b></span>
-        </p>
+          <b>  ({props.stars})</b>
+        </span>
         <p className="card-text"><b>Difficulty:  </b>
           {(() => {
             switch (props.difficulty) {

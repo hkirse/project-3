@@ -4,7 +4,6 @@ import Title from "../../components/Title";
 import cities from "../../cities.json";
 import API from "../../utils/API";
 import Jumbotron from '../../components/Jumbotron';
-// import Jumbotron from '../../components/Jumbotron';
 
 
 class Discover extends Component {
