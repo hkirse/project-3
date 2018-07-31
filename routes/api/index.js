@@ -9,6 +9,8 @@ module.exports = function(){
     Router.use(require('./test')())
     //Mount the Route object generated and imported from user.js on this Router object.
     Router.use(require('./user')())
+    //Mount the Route object generated and imported from external.js on this Router object.
+    Router.use(require('./external')())
     //Return the Router, since this has all the routes mounted on it and we have to user it higher up.
     return Router
 }
