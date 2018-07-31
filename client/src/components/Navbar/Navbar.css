@@ -11,5 +11,5 @@ nav {
 }
 
 .active > .nav-link {
-  color: blue;
+  color: rgb(33, 33, 192);
 }
