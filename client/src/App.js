@@ -18,10 +18,9 @@ class App extends Component {
           <Wrapper>
             <Switch>
               <Route exact path="/" component={Home} />
-              {/* <Route exact path="/personal" component={Personal} /> */}
+              <Route exact path="/personal" component={Personal} />
               <Route exact path="/connect" component={Connect} />
               <Route exact path="/discover" component={Discover} />
-              <Route exact path="/personal" component={Personal} />
             </Switch>
           </Wrapper>
         </div>

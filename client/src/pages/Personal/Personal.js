@@ -57,8 +57,4 @@ class Personal extends Component {
   }
 }
 
-const container = document.createElement("div");
-document.body.appendChild(container);
-render(<Personal />, container);
-
 export default Personal;
