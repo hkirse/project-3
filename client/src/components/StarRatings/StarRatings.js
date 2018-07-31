@@ -3,14 +3,12 @@ import './Stars';
 import StarRatings from 'react-star-ratings';
 import 'react-star-rating/dist/css/react-star-rating.min.css'
 
-class Stars extends Component {
+const StarRatings = props => {
   render() {
     // aggregateRating = 2.35;
     return (
       <StarRatings
-        rating={props.children}
-        starDimension="40px"
-        starSpacing="15px"
+        {...props}
       />
     );
   }
