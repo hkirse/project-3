@@ -69,7 +69,7 @@ class Navbar extends React.Component {
         }
           >
         <Link className="navbar-brand" to="/">
-          CrankHeads
+          NC CrankHeads
         </Link>
         <ul className="navbar-nav">
           <li
