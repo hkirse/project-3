@@ -1,6 +1,5 @@
 import React from 'react';
 import WeatherTile from './components/WeatherTile';
-import './App.css';
 import $ from 'jquery';
 
 

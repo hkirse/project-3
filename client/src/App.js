@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Personal from './pages/Personal';
 import Connect from './pages/Connect';
 import Discover from './pages/Discover';
-import './App.css';
 
 
 class App extends Component {
