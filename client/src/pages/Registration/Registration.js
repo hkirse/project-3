@@ -84,8 +84,8 @@ class Registration extends React.Component {
         const Data = {
             username: this.state.nusername,
             password: this.state.npassword,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
+            firstName: this.state.firstname,
+            lastName: this.state.lastname,
             email: this.state.email
         }
         API.registerUser(Data).then(res => {
@@ -159,7 +159,7 @@ class Registration extends React.Component {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="uncpassword">Confirm Password</Label>
-                                    <Input invalid={this.confPass ? false : true} 
+                                    <Input invalid={this.confPass ? false : false} 
                                         name="cpassword"
                                         placeholder="Password"
                                         id="uncpassword"
