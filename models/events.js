@@ -18,10 +18,6 @@ module.exports = function(connection){
             type: String,
             required: true
         },
-        zip: {
-            type: String,
-            required: true
-        },
         time: {
             type: Date,
             required: true
@@ -33,11 +29,7 @@ module.exports = function(connection){
         link: {
             type: String,
             required: true
-        },
-        users: [{
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        }]
+        }
     })
     connection.model('Event', EventsSchema)
 }

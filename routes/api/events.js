@@ -10,13 +10,34 @@ module.exports = function () {
     const Router = express.Router()
 
     //Save an event for user.
-    Router.post('/events', middleware.checkAuthentication, function (req, res) {
+    Router.post('/events/:id', function (req, res) {
+        etcont.saveEvent(req.connection, req.body, req.params)
+            .then(newEvent => res.json(newEvent))
+            .catch(err => {
+            console.log(err)
+            res.status(500)
+            res.json({
+            err: 'Internal Server Error',
+            message: 'Unable to create a new Event.',
+            stack: err
+            })
+        })
 
     })
 
     //Get events for a user.
-    Router.get('/events', middleware.checkAuthentication, function (req, res) {
-
+    Router.get('/events/:id', function (req, res) {
+        etcont.getEvent(req.connection, req.params.id)
+            .then(events => res.json(events[0]))
+            .catch(err => {
+                console.log(err)
+                res.status(500)
+                res.json({
+                    err: 'Internal Server Error',
+                    message: 'Unable to get Events.',
+                    stack: err
+                })
+            })
     })
     return Router
 }

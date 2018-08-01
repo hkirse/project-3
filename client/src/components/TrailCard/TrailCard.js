@@ -2,15 +2,19 @@ import React from "react";
 import "./TrailCard.css";
 import API from "../../utils/API";
 import StarRatings from 'react-star-ratings';
+import {getUserData} from "../../libs/authenticate"
 
 const TrailCard = props => {
+  const user=getUserData();
+  const disabled=(Object.keys(user).length === 0 ? "disabled" : "" )
   const trailData = {
     name: props.name,
     location: props.location,
     length: props.length,
     rating: props.stars,
     difficulty: props.difficulty,
-    image: props.image
+    image: props.image,
+    url: props.url
   }
 
   return (
@@ -45,11 +49,11 @@ const TrailCard = props => {
           })()}
         </p>
         <a href={props.url} role="button" className="btn btn-info" target="_blank">View trail on MTB Project</a>
-        <a onClick={() => { API.saveTrail(trailData) }} role="button" className="btn btn-outline-secondary mt-3">Save Trail</a>
+        {window.location.pathname==="/personal"?"":(
+        <a onClick={() => { API.saveTrail(trailData,user._id) }} role="button" className={`btn btn-outline-secondary mt-3 ${disabled}`}>Save Trail</a>
+      )}
       </div>
     </div>
-
-
   );
 };
 

@@ -2,15 +2,17 @@ import React from 'react';
 import './EventCard.css';
 import API from "../../utils/API";
 import moment from 'moment';
+import {getUserData} from "../../libs/authenticate"
 
 const EventCard = props => {
+  const user=getUserData();
+  const disabled=(Object.keys(user).length === 0 ? "disabled" : "" )
   const ridesData = {
     name: props.venue_name,
     street: props.venue_street,
     city: props.venue_city,
     state: props.venue_state,
-    zip: props.venue_zip,
-    time: props.time,
+    time: moment.unix(props.time),
     image: props.image,
     link: props.link
   }
@@ -45,7 +47,7 @@ return (
           }
           <p className="card-text">{props.rsvpcount} people are going to this event!</p>
           <a href={props.link} role="button" target="_blank" className="mt-auto btn btn-block btn-info">Visit this event page</a>
-          <a onClick={() => { API.saveTrail(ridesData) }} role="button" className="mt-3 btn btn-block btn-outline-secondary">Save Event</a>
+          <a onClick={() => { API.saveEvent(ridesData,user._id) }} role="button" className={`mt-3 btn btn-block btn-outline-secondary ${disabled}`}>Save Event</a>
         </div>
       </div>
     </div>

@@ -22,12 +22,14 @@ class Navbar extends React.Component {
     if (userInfo.firstName){
         this.setState({
           screenName:userInfo.firstName,
-          button:"Logout"
-        });
+          button:"Logout",
+          loggedin: true
+        });                
       } else {
        this.setState({
         screenName:"",
-        button:"Login"
+        button:"Login",
+        loggedin: false
       })
     }
   }
@@ -43,7 +45,8 @@ class Navbar extends React.Component {
     deauthenticate().then(res=>{
       this.setState({
         screenName:"",
-        button:"Login"
+        button:"Login",
+        loggedin: false
       })
       }).catch(err=>{
         console.log("Logout Error")
@@ -53,6 +56,7 @@ class Navbar extends React.Component {
     
 
   render() {
+    const disab=this.state.loggedin?"":"disabled"
     return (
       <nav className={
         window.location.pathname === "/" ||
@@ -91,7 +95,7 @@ class Navbar extends React.Component {
                 : "nav-item"
             }
           >
-          <Link to="/personal" className="nav-link">
+          <Link to={this.state.loggedin ? "/personal" : "/"} className={`nav-link ${disab}`}>
             Personal
           </Link>
           </li>
