@@ -21,8 +21,7 @@ const TrailCard = props => {
         <p className="card-text"><b>Location: </b>{props.location}</p>
         <p className="card-text"><b>Trail Length: </b>{props.length} miles</p>
         <p className="card-text"><b>Trail Summary: </b>{props.summary}</p>
-        <span>
-          <p className="card-text"><b>Trail Rating: </b></p>
+          <span className="card-text mb-3"><b>Trail Rating: </b>
           <StarRatings
             starRatedColor="orange"
             numberOfStars={5}
@@ -31,8 +30,7 @@ const TrailCard = props => {
             starSpacing="2px"
             rating={props.stars}
           />
-          <b>  ({props.stars})</b>
-        </span>
+          <b>  ({props.stars})</b></span>
         <p className="card-text"><b>Difficulty:  </b>
           {(() => {
             switch (props.difficulty) {
