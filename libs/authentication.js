@@ -12,7 +12,7 @@ module.exports = function (connection) {
                             if (!samePassword) {                                
                                 done(null, false);
                             }
-                            else {                                
+                            else {                                                              
                                 done(null, user)
                             }
                         })

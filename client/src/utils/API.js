@@ -7,14 +7,14 @@ export default {
         return axios.post("/api/events/"+id,Data);
     },    
     saveTrail: function (Data,id) {
-        return axios.post("/api/trails"+id,Data);
+        return axios.post("/api/trails/"+id,Data);
     },
     // Get all saved Trails Events from the database
     getSavedEvents: function (uid) {
-        return axios.get("/api/events"+uid);
+        return axios.get("/api/events/"+uid);
     },
     getSavedTrails: function (uid) {
-        return axios.get("/api/trails"+uid);
+        return axios.get("/api/trails/"+uid);
     },
 
     // Update a saved trail in the database

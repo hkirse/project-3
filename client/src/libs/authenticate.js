@@ -39,7 +39,7 @@ export function authenticate(username, password){
             })
         })
         .then(response=>{
-            if(response.ok){
+            if(response.ok){                
                 return response.json()
             }
             else{

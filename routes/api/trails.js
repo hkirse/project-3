@@ -10,8 +10,8 @@ module.exports = function () {
     const Router = express.Router()
 
     //Save a trail.
-    Router.post('/trails', middleware.checkAuthentication, function (req, res) {
-        utcont.saveTrail(req.connection, req.body)
+    Router.post('/trails/:id', function (req, res) {       
+        etcont.saveTrail(req.connection, req.body, req.params)
             .then(newTrail => res.json(newTrail))
             .catch(err => {
             console.log(err)
@@ -25,8 +25,8 @@ module.exports = function () {
     })
 
     //Get a trail.
-    Router.get('/trails/:id', middleware.checkAuthentication, function (req, res) {
-        etcont.getTrail(req.connection, [req.params.id])
+    Router.get('/trails/:id', function (req, res) {
+        etcont.getTrail(req.connection, req.params.id)
             .then(trails => res.json(trails[0]))
             .catch(err => {
                 console.log(err)

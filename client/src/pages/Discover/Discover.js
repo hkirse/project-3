@@ -89,7 +89,7 @@ class Discover extends Component {
               <div className="form-group mx-auto">
                 <label>Minimum Length (in miles): </label>
                 <select className="custom-select w-75" id="selectedDist" onChange={this.handleChangeDistance}>
-                <option id="1" value="1">1</option>
+                <option id="1" value="0">Show all</option>
                 <option id="5" value="5">5</option>
                   <option id="10" value="10">10</option>
                   <option id="15" value="15">15</option>

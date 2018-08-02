@@ -26,10 +26,10 @@ module.exports = function(connection){
             type: String,
             required: false
             },
-        users: [{
-            type: Schema.Types.ObjectId,
-            ref: "User"
-        }]
+        url: {
+            type: String,
+            required: true
+        }
     })
     connection.model('Trail', TrailSchema)
 }
