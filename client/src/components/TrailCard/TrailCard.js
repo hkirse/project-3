@@ -48,6 +48,17 @@ const TrailCard = props => {
             }
           })()}
         </p>
+        <p className="card-text"><b>Conditions:  </b>
+          {(() => {
+            switch (props.condition) {
+              case "All Clear": return <img className="cond" src="https://cdn.apstatic.com/img/conditions/green.svg" alt="clear" />;
+              case "Minor Issues": return <img className="cond" src="https://cdn.apstatic.com/img/conditions/yellow.svg" alt="minor issues" />;
+              case "Bad / Closed": return <img className="cond" src="https://cdn.apstatic.com/img/conditions/red.svg" alt="bad/closed" />;
+              case "Unknown": return <img className="cond" src="https://cdn.apstatic.com/img/conditions/empty.svg" alt="bad/closed" />;
+              default: return (props.condition);
+            }
+          })()}<span><b>    ({props.condition})</b></span>
+        </p>
         <a href={props.url} role="button" className="btn btn-info" target="_blank">View trail on MTB Project</a>
         {window.location.pathname==="/personal"?"":(
         <a onClick={() => { API.saveTrail(trailData,user._id) }} role="button" className={`btn btn-outline-secondary mt-3 ${disabled}`}>Save Trail</a>

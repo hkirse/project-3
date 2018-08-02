@@ -106,12 +106,13 @@ class Discover extends Component {
                   <TrailCard
                     key={trail.id}
                     name={trail.name}
-                    image={trail.imgMedium}
+                    image={trail.imgSmallMed}
                     difficulty={trail.difficulty}
                     location={trail.location}
                     summary={trail.summary}
                     length={trail.length}
                     stars={trail.stars}
+                    condition={trail.conditionStatus}
                     url={trail.url}
                   />
                 ))}
