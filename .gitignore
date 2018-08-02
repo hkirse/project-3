@@ -7,6 +7,9 @@ client/node_modules/
 # testing
 coverage/
 
+# VS Code
+.vscode
+
 # production
 build/
 

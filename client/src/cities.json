@@ -1,0 +1,139 @@
+[
+  {
+    "id": 0,
+    "city": "Select City"
+  },
+  {
+    "id": 1,
+    "city": "Asheville",
+    "longitude": -82.4730588,
+    "latitude": 35.5841465,
+    "selected": false
+  },
+  {
+    "id": 2,
+    "city": "Blowing Rock",
+    "longitude": -81.670544,
+    "latitude": 36.129282,
+    "selected": false
+  },
+  {
+    "id": 3,
+    "city": "Boone",
+    "longitude": -81.668935,
+    "latitude": 36.212829,
+    "selected": false
+  },
+  {
+    "id": 4,
+    "city": "Brevard",
+    "longitude": -82.726275,
+    "latitude": 35.243589,
+    "selected": false
+  },
+  {
+    "id": 5,
+    "city": "Bryson City",
+    "longitude": -83.447265,
+    "latitude": 35.42661,
+    "selected": false
+  },
+  {
+    "id": 6,
+    "city": "Cary",
+    "longitude": -78.9216208,
+    "latitude": 35.8277976,
+    "selected": false
+  },
+  {
+    "id": 7,
+    "city": "Chapel Hill",
+    "longitude": -79.038271,
+    "latitude": 35.925942,
+    "selected": false
+  },
+  {
+    "id": 8,
+    "city": "Charlotte",
+    "longitude": -80.8526132,
+    "latitude": 35.3194029,
+    "selected": false
+  },
+  {
+    "id": 9,
+    "city": "Concord",
+    "longitude": -80.5447022,
+    "latitude": 35.3768511,
+    "selected": false
+  },
+  {
+    "id": 10,
+    "city": "Durham",
+    "longitude": -78.8842679,
+    "latitude": 36.0241586,
+    "selected": false
+  },
+  {
+    "id": 11,
+    "city": "Fayetteville",
+    "longitude": -78.8761646,
+    "latitude": 35.0596117,
+    "selected": false
+  },
+  {
+    "id": 12,
+    "city": "Gastonia",
+    "longitude": -81.251433,
+    "latitude": 35.2895002,
+    "selected": false
+  },
+  {
+    "id": 13,
+    "city": "Greensboro",
+    "longitude": -79.6730604,
+    "latitude": 36.0529735,
+    "selected": false
+  },
+  {
+    "id": 14,
+    "city": "Greenville",
+    "longitude": -77.372643,
+    "latitude": 35.6059645,
+    "selected": false
+  },
+  {
+    "id": 15,
+    "city": "High Point",
+    "longitude": -79.9249337,
+    "latitude": 35.9484663,
+    "selected": false
+  },
+  {
+    "id": 16,
+    "city": "Jacksonville",
+    "longitude": -77.3377323,
+    "latitude": 34.6656148,
+    "selected": false
+  },
+  {
+    "id": 17,
+    "city": "Raleigh",
+    "longitude": -78.6658274,
+    "latitude": 35.7819418,
+    "selected": false
+  },
+  {
+    "id": 18,
+    "city": "Wilmington",
+    "longitude": -77.9361664,
+    "latitude": 34.2420806,
+    "selected": false
+  },
+  {
+    "id": 19,
+    "city": "Winston-Salem",
+    "longitude": -80.3622957,
+    "latitude": 36.1617736,
+    "selected": false
+  }
+]

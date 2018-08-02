@@ -4,6 +4,7 @@
   background-position: top;
   position: relative;
   background-image: url(../../images/snow-bike.png);
+  padding: 1%
 }
 
 .jumbotron::after {
