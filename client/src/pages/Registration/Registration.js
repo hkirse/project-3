@@ -161,9 +161,9 @@ class Registration extends React.Component {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="uncpassword">Confirm Password</Label>
-                                    <Input invalid={this.confPass ? false : false} 
+                                    <Input invalid={this.state.npassword === this.state.cpassword ? false : true} 
                                         name="cpassword"
-                                        placeholder="Password"
+                                        placeholder="Confirm Password"
                                         id="uncpassword"
                                         type='password'
                                         onChange={this.handleInputChange}
