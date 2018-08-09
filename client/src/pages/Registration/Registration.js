@@ -28,9 +28,15 @@ class Registration extends React.Component {
         this.state.email.length * this.state.npassword.length * this.state.nusername.length;
         if ( allinput > 0 &&
             this.state.npassword === this.state.cpassword) {
-            this.setState({
-                btnActive: true
-            });
+            if (!this.state.ueinValid && !this.state.uninValid) {
+                this.setState({
+                    btnActive: true
+                });
+            } else {
+                this.setState({
+                    btnActive: false
+                });
+            }            
         } else {
             this.setState({
                 btnActive: false
