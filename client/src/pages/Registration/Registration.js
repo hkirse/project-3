@@ -58,13 +58,15 @@ class Registration extends React.Component {
                 this.setState({
                     email: "",
                     uninValid: false,
-                    ueinValid: true
+                    ueinValid: true,
+                    btnActive: false
                 })
             } else if (res.data.username === this.state.nusername) {
                 this.setState({
                     nusername: "",
                     uninValid: true,
-                    ueinValid: false
+                    ueinValid: false,
+                    btnActive: false
                 })
             } else {
                 this.setState({
