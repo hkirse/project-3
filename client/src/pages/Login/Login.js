@@ -35,7 +35,7 @@ class Login extends React.Component {
                 })
                 .catch(err => {
                     console.log(err);
-                    alert("Invalid username and/or Password! Please Try Again")
+                    alert("Invalid username and/or Password! Please Try Again");
                 });
         }
     };

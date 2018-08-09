@@ -39,15 +39,18 @@ export function authenticate(username, password){
             })
         })
         .then(response=>{
-            if(response.ok){                
+            if(response.ok){                                
                 return response.json()
             }
             else{
-                reject('Invalid credentials')
+                console.log(response)
+                throw reject('Invalid credentials')
+                
             }
         })
         .then(data=>{
             //console.log(data)
+            console.log("THIS IS",data)
             window.localStorage.setItem('user', JSON.stringify(data))
             resolve(true)
         })
