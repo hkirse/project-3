@@ -10,7 +10,6 @@ class Home extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
       events: []
     };
   }
@@ -23,7 +22,6 @@ class Home extends Component {
         }).reverse().filter((e, i) => i < 3)
         this.setState({
           error: null,
-          isLoaded: true,
           events: trendArr
         });
       })
@@ -31,14 +29,13 @@ class Home extends Component {
         console.log(error)
         this.setState({
           events: [],
-          isLoaded: true,
           error
         });
       })
   }
 
   render() {
-    const { error, isLoaded, events } = this.state;
+    const { error, events } = this.state;
     const array = this.state.events;
 
     // Log it out!
@@ -47,9 +44,7 @@ class Home extends Component {
     }
 
     if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
+
     } else {
       return (
         <div>
