@@ -30,7 +30,7 @@ const TrailCard = props => {
             starRatedColor="orange"
             numberOfStars={5}
             name='rating'
-            starDimension="25px"
+            starDimension="30px"
             starSpacing="2px"
             rating={props.stars}
           />

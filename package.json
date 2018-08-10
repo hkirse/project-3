@@ -20,7 +20,6 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.283.1",
     "axios": "^0.16.2",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.17.2",
@@ -34,7 +33,6 @@
     "passport-local": "^1.0.0",
     "react-star-ratings": "^2.3.0",
     "reactstrap": "^6.3.0",
-    "react-dropzone": "^4.2.13",
     "superagent": "^3.8.3"
   }
 }

@@ -212,6 +212,7 @@ class Discover extends Component {
                                     summary={trail.summary}
                                     length={trail.length}
                                     stars={Number(trail.rating)}
+                                    condition={trail.conditionStatus}
                                     url={trail.url}
                                 />
                             ))}
