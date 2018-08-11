@@ -22,12 +22,12 @@ const data1 = {
 	datasets: [{
 		data: [],
 		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-        '#FFCE56',
-        '#800000',
-        '#05D9F3',
-        '#000000'
+		'lightgreen',
+		'darkgreen',
+        'blue',
+        'darkblue',
+        'orange',
+        'red'
 		],
 		hoverBackgroundColor: [
         '#FF6384',
@@ -169,7 +169,7 @@ class Discover extends Component {
                                         <CardTitle>Contact</CardTitle> 
                                         <CardText>{this.state.userInfo.email}</CardText>
                                         <CardTitle tag="h3">Rides</CardTitle> 
-                                        <Row>
+                                        <Row className="mb-5">
                                             <Col sm="12" md={{ size: 6}}>
                                                 <CardText tag="h3">Difficulty</CardText>
                                                 <Doughnut data={data1} />
